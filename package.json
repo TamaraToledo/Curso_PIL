@@ -1,0 +1,20 @@
+{
+  "name": "pil-cypress",
+  "version": "1.0.0",
+  "description": "Cypress test automation curso PIL",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "Cypress",
+    "test",
+    "automation",
+    "curso"
+  ],
+  "author": "Tamara",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.17.2"
+  }
+}
