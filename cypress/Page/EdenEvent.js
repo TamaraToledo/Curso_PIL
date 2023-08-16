@@ -4,7 +4,7 @@
     constructor() {
       this.eventTitle = ".fechas-funciones span";
     }
-  }
+  };
 
   export default class EdenEvent {
     constructor() {
@@ -14,6 +14,6 @@
     getEventTitle(){
       return cy.get(this.locators.eventTitle).first();
     }
-  }
+  };
 
   

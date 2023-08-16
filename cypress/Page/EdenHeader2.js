@@ -10,6 +10,6 @@
     getImageLogo(){
       return cy.get("#header-logo");
     }
-  }
+  };
 
 export default new edenHeader2();
