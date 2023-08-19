@@ -3,7 +3,6 @@ import EdenHome from "../../Page/EdenHome";
 import EdenHeader from "../../Page/EdenHeader";
 import EdenHeader2 from "../../Page/EdenHeader2";
 import EdenEvent from "../../Page/EdenEvent";
-import EdenSalas from "../../Page/EdenSalas";
 
 const edenHome = new EdenHome();
 const edenHeader = new EdenHeader();
@@ -14,8 +13,12 @@ const edenEvent = new EdenEvent();
 
 describe("Test sobre la pagina de EDEN ENTRADAS", () => {
   beforeEach(()=>{
+    const tamPantalla = Cypress.env("viewportdesktop").device;
+    cy.viewport(tamPantalla);
     cy.visit ("/");
   });
+
+
     it("Verificar subtitulos", () => {
       const txtBuscar = "BUSCAR EVENTO";
       const txtCalendar = "CALENDARIO DE EVENTOS";
