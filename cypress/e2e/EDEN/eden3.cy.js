@@ -3,9 +3,7 @@ const edenHome2 = require ("../../Page/EdenHome2.js")
 const edenHeader2 = require("../../Page/EdenHeader2.js")
 describe("Test sobre la pagina de EDEN ENTRADAS", () => {
   beforeEach(()=>{
-    const tamPantalla = Cypress.env("viewportdesktop").device;
-    cy.viewport(tamPantalla);
-    cy.visit ("/");
+   cy.openWeb();
   });
 
 

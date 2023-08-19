@@ -7,17 +7,15 @@ import EdenEvent from "../../Page/EdenEvent";
 const edenHome = new EdenHome();
 const edenHeader = new EdenHeader();
 const edenEvent = new EdenEvent();
+const utils = require ("../../Page/utils")
 
 
 
 
 describe("Test sobre la pagina de EDEN ENTRADAS", () => {
   beforeEach(()=>{
-    const tamPantalla = Cypress.env("viewportdesktop").device;
-    cy.viewport(tamPantalla);
-    cy.visit ("/");
+    cy.openWeb();
   });
-
 
     it("Verificar subtitulos", () => {
       const txtBuscar = "BUSCAR EVENTO";
@@ -56,37 +54,17 @@ describe("Test sobre la pagina de EDEN ENTRADAS", () => {
       edenEvent.getEventTitle().should("contain.text", eventTxt)
     });
    
-    it("Validación del calendario",()=>{
-      
-      const fechaActual = new Date();
-      const diaActual = fechaActual.getDate();
-      const mesActual = fechaActual.getMonth();
-      const anioActual = fechaActual.getFullYear();
-
-      const meses = [
-        "Enero",
-        "Febrero",
-        "Marzo",
-        "Abril",
-        "Mayo",
-        "Junio",
-        "Julio",
-        "Agosto",
-        "Septiembre",
-        "Octubre",
-        "Noviembre",
-        "Diciembre",
-      ];
-      cy.log (diaActual);
-      cy.log (meses[mesActual]);     
-      cy.log (anioActual);
-      edenHeader.getCalendarTitle().should("contain.text",(meses[mesActual]));
-      edenHeader.getCalendarTitle().should("contain.text",anioActual);
+  
+    it("Validacion del calendario",()=>{
+      const [dia, mes, anio]= utils.getCompleteDate()
+     
+      edenHeader.getCalendarTitle().should("contain.text",(mes));
+      edenHeader.getCalendarTitle().should("contain.text",anio);
       edenHeader
       .getCalendar()
       .find ("td")
       .each((cuadradoDia, $inx) => {
-        if ($inx <diaActual){      
+        if ($inx <dia){      
         cy.wrap(cuadradoDia).should("have.class","ui-datepicker-unselectable ui-state-disabled");
         }   
       });
