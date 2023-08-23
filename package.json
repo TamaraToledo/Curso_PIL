@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "cypress:open:desktop" : "npx cypress open --e2e --browser chrome -e type=desktop",
-    "cypress:open:mobile" : "npx cypress open --e2e --browser chrome -e type=mobile",
-    "cypress:run:eden" : "npx cypress run --e2e --browser chrome --spec cypress/e2e/EDEN"
+    "cypress:open:desktop": "npx cypress open --e2e --browser chrome --env type=desktop,grepTag=@regression",
+    "cypress:open:mobile": "npx cypress open --e2e --browser chrome -e type=mobile",
+    "cypress:run:eden": "npx cypress run --e2e --browser chrome --spec cypress/e2e/EDEN"
   },
-
   "keywords": [
     "Cypress",
     "test",
@@ -20,5 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^12.17.2"
+  },
+  "devDependencies": {
+    "@bahmutov/cy-grep": "^1.9.16"
   }
 }
