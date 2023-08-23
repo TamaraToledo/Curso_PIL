@@ -2,6 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env:{
+    grepFilterSpecs: true, grepOmitFiltered: true,
     viewportmobile: {
       device: "iphone-xr"
     },
