@@ -23,14 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add("openWeb",()=>{
-    let tamPantalla;
+Cypress.Commands.add("openWeb", () => {
+    let viewDevice;
 
-    if(Cypress.env("type")==="mobile"){
-    const tamPantalla= Cypress.env("viewportmobile").device;
-    }else{
-     const tamPantalla= Cypress.env("viewportdesktop").device;
+    if (Cypress.env("type") !== "mobile") {
+        viewDevice = Cypress.env("viewportdesktop").device;
+    } else {
+        viewDevice = Cypress.env("viewportmobile").device;
     }
- cy.viewport(tamPantalla);
- cy.visit ("/");
+
+    cy.log("View Device:", viewDevice); 
+    cy.viewport(viewDevice);
+    cy.visit("/");
 });
